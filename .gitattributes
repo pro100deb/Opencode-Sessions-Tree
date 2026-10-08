@@ -1,0 +1,13 @@
+#--[ Единые EOL и тип файлов для Git ]--#
+* text=auto eol=lf
+
+*.ts text
+*.tsx text
+*.json text
+*.md text
+
+#--[ Файл блокировки bun — генерируемый ]--#
+bun.lock linguist-generated=true
+
+#--[ Тесты — детектируемый код ]--#
+*.test.ts linguist-detectable=true

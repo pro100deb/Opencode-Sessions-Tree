@@ -1,0 +1,35 @@
+#--[ Форма отчёта о баге ]--#
+name: "Баг"
+description: "Проблема в работе плагина"
+title: "[баг] "
+labels: [bug]
+body:
+  - type: textarea
+    label: "Что случилось"
+    description: "Опишите, что произошло, и где именно"
+  - type: textarea
+    label: "Как воспроизвести"
+    description: "Пошаговый порядок действий, при котором проблема появляется"
+  - type: textarea
+    label: "Ожидаемое поведение"
+    description: "Что должно происходить вместо наблюдаемого"
+  - type: input
+    label: "Версия OpenCode"
+    description: "Вывод команды opencode --version"
+  - type: input
+    label: "ОС"
+    description: "Например: Linux (Debian 12), macOS 15, Windows 11"
+  - type: input
+    label: "Терминал"
+    description: "Например: kitty, gnome-terminal, Windows Terminal"
+  - type: markdown
+    value: |
+      ## Лог плагина
+
+      Приложите лог плагина: файл `/tmp/opencode/session-tree.log`.
+
+      ## Конфигурация
+
+      Плагин читает настройки из `~/.config/opencode/cli.json` — приложите
+      содержимое этого файла (секцию с плагинами), если проблема связана
+      с конфигурацией.
