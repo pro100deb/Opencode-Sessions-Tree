@@ -1,0 +1,38 @@
+{
+  "name": "opencode-session-tree",
+  "version": "0.1.0",
+  "description": "OpenCode V2 TUI plugin: session tree (parent/child) in the sidebar and a /tree dialog with cascading delete",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./tui": "./tui.tsx"
+  },
+  "files": [
+    "*.ts",
+    "*.tsx",
+    "test/**/*.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "tui",
+    "session",
+    "tree",
+    "subagent",
+    "delete"
+  ],
+  "engines": {
+    "opencode": ">=2.0.0"
+  },
+  "devDependencies": {
+    "@opencode/plugin": "2.0.23",
+    "@opencode/theme": "2.0.23",
+    "@opentui/core": "^0.5.17",
+    "@opentui/solid": "^0.5.17",
+    "@types/bun": "^1.4.2",
+    "solid-js": "^1.9.17",
+    "typescript": "^5.9.0"
+  }
+}
