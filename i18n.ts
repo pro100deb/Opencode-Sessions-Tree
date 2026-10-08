@@ -64,8 +64,21 @@ const ru: Dictionary = {
   sidebarEmpty: "нет вложенных",
   untitled: "(без названия)",
   deleteTitle: "Удалить сессию?",
-  deleteNested: (count) =>
-    `Будет удалена сессия и ещё ${count} вложенных сессий.`,
+  //--[ Склонение по правилам русского: 1 → «вложенная», 2-4 → «вложенных», ]--//
+  //--[ 5-20 и 0 → «вложенных». Исключение — 11-14. ]--//
+  deleteNested: (count) => {
+    const tail = count % 100;
+    const last = count % 10;
+    const word =
+      tail >= 11 && tail <= 14
+        ? "вложенных сессий"
+        : last === 1
+          ? "вложенная сессия"
+          : last >= 2 && last <= 4
+            ? "вложенные сессии"
+            : "вложенных сессий";
+    return `Будет удалена сессия и ещё ${count} ${word}.`;
+  },
   deleteOne: "Будет удалена одна сессия.",
   confirmDelete: "Удалить",
   cancel: "Отмена",
@@ -86,8 +99,11 @@ const en: Dictionary = {
   sidebarEmpty: "no nested sessions",
   untitled: "(untitled)",
   deleteTitle: "Delete session?",
+  //--[ Правильное единственное/множественное число по-английски. ]--//
   deleteNested: (count) =>
-    `The session and ${count} nested session(s) will be deleted.`,
+    count === 1
+      ? "The session and 1 nested session will be deleted."
+      : `The session and ${count} nested sessions will be deleted.`,
   deleteOne: "One session will be deleted.",
   confirmDelete: "Delete",
   cancel: "Cancel",

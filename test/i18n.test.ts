@@ -73,6 +73,35 @@ describe("dictionary", () => {
     expect(dictionary("en").deleteNested(3)).toContain("3");
   });
 
+  test("русское склонение числительных", () => {
+    const ru = dictionary("ru");
+    expect(ru.deleteNested(1)).toBe(
+      "Будет удалена сессия и ещё 1 вложенная сессия.",
+    );
+    expect(ru.deleteNested(2)).toBe(
+      "Будет удалена сессия и ещё 2 вложенные сессии.",
+    );
+    expect(ru.deleteNested(5)).toBe(
+      "Будет удалена сессия и ещё 5 вложенных сессий.",
+    );
+    expect(ru.deleteNested(11)).toBe(
+      "Будет удалена сессия и ещё 11 вложенных сессий.",
+    );
+    expect(ru.deleteNested(21)).toBe(
+      "Будет удалена сессия и ещё 21 вложенная сессия.",
+    );
+  });
+
+  test("английское число: 1 → session, иначе sessions", () => {
+    const en = dictionary("en");
+    expect(en.deleteNested(1)).toBe(
+      "The session and 1 nested session will be deleted.",
+    );
+    expect(en.deleteNested(2)).toBe(
+      "The session and 2 nested sessions will be deleted.",
+    );
+  });
+
   test("единицы времени локализованы", () => {
     expect(dictionary("ru").units.days).toBe("д");
     expect(dictionary("en").units.days).toBe("d");
