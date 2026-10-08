@@ -89,3 +89,9 @@ bunx tsc --noEmit # типы
 - Диагностический лог: `/tmp/opencode/session-tree.log`.
 - Тестовый стенд без человека: `tmux` + `opencode --standalone`
   (см. `~/.documentation/opencode.md`, раздел про плагин).
+
+## Репозиторий
+
+Исходный код: <https://github.com/pro100deb/Opencode-Sessions-Tree>
+
+Лицензия — MIT (см. `LICENSE`).

@@ -4,6 +4,10 @@
   "description": "OpenCode V2 TUI plugin: session tree (parent/child) in the sidebar and a /tree dialog with cascading delete",
   "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pro100deb/Opencode-Sessions-Tree.git"
+  },
   "exports": {
     "./tui": "./tui.tsx"
   },
