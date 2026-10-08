@@ -8,6 +8,7 @@ import { createSignal } from "solid-js";
 import type { Context } from "@opencode/plugin/tui/context";
 import { buildForest, type SessionMeta, type TreeNode } from "./forest.ts";
 import { detectLanguage, dictionary, type Dictionary } from "./i18n.ts";
+import { log } from "./log.ts";
 
 const POLL_MS = 20_000;
 const THROTTLE_MS = 800;
@@ -39,6 +40,23 @@ export function createSessionTreeStore(context: Context) {
   let lastFetch = 0;
   let timer: ReturnType<typeof setTimeout> | undefined;
 
+  //--[ Плагин показывает сессии ТОЛЬКО текущего каталога — как встроенный ]--//
+  //--[ список `Sessions`. Без фильтра API отдаёт сессии всех проектов. ]--//
+  //--[ Каталог берём у локации запуска; фолбэк — локация по умолчанию. ]--//
+  const directory = ((): string | undefined => {
+    const launch = context.location?.directory;
+    if (typeof launch === "string" && launch !== "") return launch;
+    try {
+      const fallback = context.data.location.default().directory;
+      return typeof fallback === "string" && fallback !== ""
+        ? fallback
+        : undefined;
+    } catch {
+      return undefined;
+    }
+  })();
+  log(`каталог для выборки: ${directory ?? "(без фильтра)"}`);
+
   const syncMeta = (id: string): void => {
     if (synced.has(id)) return;
     synced.add(id);
@@ -55,6 +73,7 @@ export function createSessionTreeStore(context: Context) {
       const response = await context.client.session.list({
         limit: FETCH_LIMIT,
         order: "desc",
+        ...(directory !== undefined ? { directory } : {}),
       });
       const mapped: SessionMeta[] = [];
       for (const info of response.data) {
