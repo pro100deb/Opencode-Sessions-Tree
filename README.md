@@ -1,7 +1,15 @@
 # opencode-session-tree
 
+[![CI](https://github.com/pro100deb/Opencode-Sessions-Tree/actions/workflows/ci.yml/badge.svg)](https://github.com/pro100deb/Opencode-Sessions-Tree/actions/workflows/ci.yml)
+[![Лицензия: MIT](https://img.shields.io/badge/лицензия-MIT-blue.svg)](LICENSE)
+[![OpenCode V2](https://img.shields.io/badge/OpenCode-V2-6E56CF.svg)](https://opencode.ai/v2/docs/)
+[![Bun](https://img.shields.io/badge/Bun-%E2%89%A51.4-black.svg)](https://bun.sh)
+[![Тесты](https://img.shields.io/badge/тесты-33%20проходят-brightgreen.svg)](#проверка)
+
 TUI-плагин для OpenCode V2: дерево сессий в боковой панели и окно
 `/tree` — тем же диалогом, что и встроенный список `Sessions`.
+
+[Установка](#установка) · [Возможности](#что-делает) · [Управление](#управление-окном) · [Проверка](#проверка) · [Участие](CONTRIBUTING.md) · [Changelog](CHANGELOG.md)
 
 ## Что делает
 
