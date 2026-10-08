@@ -4,12 +4,23 @@
 [![Лицензия: MIT](https://img.shields.io/badge/лицензия-MIT-blue.svg)](LICENSE)
 [![OpenCode V2](https://img.shields.io/badge/OpenCode-V2-6E56CF.svg)](https://opencode.ai/v2/docs/)
 [![Bun](https://img.shields.io/badge/Bun-%E2%89%A51.4-black.svg)](https://bun.sh)
-[![Тесты](https://img.shields.io/badge/тесты-33%20проходят-brightgreen.svg)](#проверка)
+[![Тесты](https://img.shields.io/badge/тесты-35%20проходят-brightgreen.svg)](#проверка)
 
 TUI-плагин для OpenCode V2: дерево сессий в боковой панели и окно
 `/tree` — тем же диалогом, что и встроенный список `Sessions`.
 
 [Установка](#установка) · [Возможности](#что-делает) · [Управление](#управление-окном) · [Проверка](#проверка) · [Участие](CONTRIBUTING.md) · [Changelog](CHANGELOG.md)
+
+## Скриншоты
+
+Окно `/tree` — дерево сессий с вложенными, поиском и действиями в футере:
+
+![Окно /tree](docs/screenshot-tree.png)
+
+Секция **Session Tree** в боковой панели — вложенные сессии текущей, оформлена
+как встроенные секции (`MCP`, `Context`):
+
+![Секция Session Tree](docs/screenshot-sidebar.png)
 
 ## Что делает
 
@@ -84,7 +95,7 @@ TUI-плагин для OpenCode V2: дерево сессий в боковой
 ```sh
 cd ~/.config/opencode/tui/session-tree
 bun install
-bun test          # чистая логика: 17 тестов
+bun test          # 35 тестов: логика леса, язык, склонение
 bunx tsc --noEmit # типы
 ```
 
